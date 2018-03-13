@@ -24,12 +24,14 @@ pwa:
 
 # Highlight theme
 # ---------------
-highlight_theme: default
+highlight_theme: default # default/darker/pale night/light
 
 # Nav settings
 # ---------------
-#social:
+social:
   #icon_name: url
+  github: https://github.com/lucissfer
+  weibo: https://weibo.com/lucissfer
 
 # Algolia search
 # ---------------
@@ -108,7 +110,7 @@ post_meta:
   tags: true
 
 wordcount:
-  enable: false
+  enable: true
 
 toc:
   enable: true

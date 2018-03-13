@@ -24,7 +24,7 @@ pwa:
 
 # Highlight theme
 # ---------------
-highlight_theme: default # default/darker/pale night/light
+highlight_theme: pale night # default/darker/pale night/light
 
 # Nav settings
 # ---------------

@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Lucissfer's world
+title: Lucissfer's
 subtitle: 回首向来萧瑟处，也无风雨也无晴
 description: 回首向来萧瑟处，也无风雨也无晴
 author: Lucissfer
@@ -73,7 +73,8 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-theme: melody
+#theme: melody
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

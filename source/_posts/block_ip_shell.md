@@ -1,5 +1,7 @@
 ---
 title: 一个关于屏蔽恶意IP的shell脚本
+categories: Linux
+tags: block_ip
 
 ---
 
@@ -8,6 +10,9 @@ title: 一个关于屏蔽恶意IP的shell脚本
 提示用户输入一个IP，然后将此IP添加到iptables拒绝列表，同时将此IP添加到hosts.deny文件中，实现拒绝IP访问。
 **2.查找IP是否被拒绝并提示用户是否删除：**
 提示用户输入一个IP，然后查询此IP是否存在于iptables拒绝列表、hosts.deny文件、route list，将查询结果输出到屏幕；同时输出一个选项菜单，让用户选择是否从拒绝列表中删除IP。
+
+<!-- more -->
+
 
 早前的脚本只有添加拒绝IP和查询IP是否被拒绝这两个功能，并无查询后删除的功能，代码如下：
 ```

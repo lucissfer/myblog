@@ -43,6 +43,9 @@ ngx_cache_purge-2.3.tar.gz
 然后执行ldconfig更新/etc/ld.so.cache文件
 # ldconfig
 ```
+
+<!-- more -->
+
 **安装FastDFS**
 --------
 ```

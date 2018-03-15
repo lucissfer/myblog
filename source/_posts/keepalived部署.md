@@ -30,6 +30,9 @@ tags:
 # mkdir /usr/local/keepalived
 # mkdir /etc/keepalived
 ```
+
+<!-- more -->
+
 **编译前配置**
 ```
 # cd keepalived-1.3.2

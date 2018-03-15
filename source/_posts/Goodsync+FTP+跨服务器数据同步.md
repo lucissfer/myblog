@@ -26,6 +26,8 @@ tags:
 
 说干就干，下面就来详细写一下部署过程。
 
+<!-- more -->
+
  - **部署FTP服务**
  因为Goodsync支持通过FTP的方式来实现数据同步传输，而且FTP的配置相对简单，所以在此例中我选择部署FTP。
 为了方便配置，同时也因为Windows自带FTP配置麻烦，所以FTP Server我选择**Filezilla Server**，Filezilla是一款开源免费的FTP软件，也是一款神奇，具体的我就不多介绍了，总之也是一款神器。

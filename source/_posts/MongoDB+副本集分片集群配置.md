@@ -31,6 +31,9 @@ bin  GNU-AGPL-3.0  MPL-2  README  THIRD-PARTY-NOTICES
 export PATH=/usr/local/mongodb/bin:$PATH
 # source /etc/profile.d/mongodb.sh
 ```
+
+<!-- more -->
+
 **为MongoDB创建相关目录**
 -------
 ```

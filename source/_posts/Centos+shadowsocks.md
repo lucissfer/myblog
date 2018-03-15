@@ -19,6 +19,9 @@ Pip是安装Python包的工具，提供了安装、列举已安装包、升级�
 ```shell
 # yum install -y python-pip
 ```
+
+<!-- more -->
+
 2.通过pip安装shadowsocks
 --------
 ```shell

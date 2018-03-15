@@ -34,6 +34,9 @@ MySQL服务器环境：Centos 7.1 + MySQL 5.6.24
 # chown mysql.mysql multi.cnf
 ```
 此处，我们采用的MySQL的官方解决方案mysqld_multi来实现。
+
+<!-- more -->
+
 4. 配置MySQL多实例配置文件
 ---------
 ```shell

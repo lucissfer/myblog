@@ -34,6 +34,8 @@ kp-bt-13    MHA-manager
 ```
 # yum install -y gcc-c++ ncurses-devel openssh-clients
 ```
+<!-- more -->
+
 **配置ssh互信**
 --------
 ```

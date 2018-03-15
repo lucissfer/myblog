@@ -34,6 +34,8 @@ max_input_time = 300
 memory_limit = 128M
 mbstring.func_overload = 2
 ```
+<!-- more -->
+
 ## 1.3 安装Zabbix-Server
 下载程序源码
 ```

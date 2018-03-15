@@ -34,6 +34,9 @@ redis配置文件位置
 # wget http://download.redis.io/releases/redis-3.2.6.tar.gz
 # tar zxf redis-3.2.6.tar.gz
 ```
+
+<!-- more -->
+
 **为redis创建相关目录**
 --------
 ```

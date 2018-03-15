@@ -34,6 +34,9 @@ tags:
 # make libdrizzle-1.0
 # make install-libdrizzle-1.0
 ```
+
+<!-- more -->
+
 创建openresty运行用户
 ```shell
 # groupadd www

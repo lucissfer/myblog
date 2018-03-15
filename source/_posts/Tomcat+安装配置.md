@@ -40,6 +40,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CATALINA_HOME=/usr/local/tomcat
 export PATH=$CATALINA_HOME/bin:$PATH
 ```
+
+<!-- more -->
+
 **导出tomcat环境变量**
 ```
 # source /etc/profile.d/tomcat.sh

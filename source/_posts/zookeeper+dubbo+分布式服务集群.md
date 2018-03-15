@@ -48,6 +48,8 @@ mkdir: created directory `/home/zookeeper/data/'
 # mkdir /usr/local/zookeeper/log/
 ```
 
+<!-- more -->
+
 **配置相应的iptables规则**
 ------
 ```

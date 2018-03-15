@@ -29,6 +29,9 @@ zabbix的web页面安装路径：/home/zabbix
 zabbix服务安装路径：/usr/local/zabbix
 MySQL安装路径：/home/mysql
 
+
+<!-- more -->
+
 **2.2 下载软件包**
 ------
 ```

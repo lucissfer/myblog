@@ -113,10 +113,10 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-#scheme: Gemini
+scheme: Gemini
 
 
 # ---------------------------------------------------------------
@@ -176,8 +176,8 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right (only for Pisces | Gemini).
-  position: left
-  #position: right
+  #position: left
+  position: right
 
   # Sidebar Display, available value (only for Muse | Mist):
   #  - post    expand on posts automatically. Default.
@@ -709,12 +709,12 @@ three_waves: false
 #three_waves: true
 
 # canvas_lines
-#canvas_lines: false
-canvas_lines: true
+canvas_lines: false
+#canvas_lines: true
 
 # canvas_sphere
-canvas_sphere: false
-#canvas_sphere: true
+#canvas_sphere: false
+canvas_sphere: true
 
 # Only fit scheme Pisces
 # Canvas-ribbon

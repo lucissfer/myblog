@@ -10,12 +10,9 @@ tags:
  - Centos
  - RabbitMQ
 
-
 ---
-
-1. **RabbitMQ介绍**
-========
-
+**1. RabbitMQ介绍**
+======
 > RabbitMQ是实现AMQP（高级消息队列协议）的消息中间件的一种，最初起源于金融系统，用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。RabbitMQ主要是为了实现系统之间的双向解耦而实现的。当生产者大量产生数据时，消费者无法快速消费，那么需要一个中间层。保存这个数据。
 
 > AMQP，即Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。
@@ -24,21 +21,20 @@ tags:
 
 >                                                       ---以上内容我抄的
 
+
 <!-- more -->
 
-2. **准备所需软件包**
-========
-
+**2. 准备所需软件包**
+======
 ```shell
 # ls /data/src/
 jdk-8u171-linux-x64.rpm  otp_src_18.3.tar.gz  rabbitmq-server-generic-unix-3.6.6.tar   wxWidgets-3.0.4.tar
 ```
 
-3. **编译安装Erlang** 
+**3. 编译安装Erlang** 
 ======
-
 因为RabbitMQ是用Erlang语言编写的，所以在编译安装RabbitMQ之前必须要先编译安装Erlang，Erlang的安装可以使用yum安装，也可以使用源码包编译安装；Centos7上yum安装的Erlang版本太低，因此，此处我们采用源码包编译安装。
-3.1 **安装依赖环境**
+**3.1 安装依赖环境**
 ------
 ```shell
 # yum install -y gcc*
@@ -49,7 +45,7 @@ jdk-8u171-linux-x64.rpm  otp_src_18.3.tar.gz  rabbitmq-server-generic-unix-3.6.6
 # yum install -y fop
 # yum install -y libxslt-devel
 ```
-3.2 **编译安装wxWidgets**
+**3.2 编译安装wxWidgets**
 ------
 wxWidgets是一个开源的跨平台的C++构架库（framework），它可以提供GUI（图形用户界面）和其它工具。wxWidgets支持在Erlang的编译安装过程中是非必需的，但Erlang的新GUI工具是基于wxWidgets开发的，因此要使用这些工具必须安装wxWidgets。
 ```shell
@@ -65,7 +61,7 @@ wxWidgets是一个开源的跨平台的C++构架库（framework），它可以�
 > **注意：**
 此处需注意的是，gtk+-devel、gtk2-devel、binutils-devel是必需的依赖环境，否则wxWidgets的make过程会报错。
 
-3.3 **编译安装Erlang**
+**3.3 编译安装Erlang**
 ------
 ```shell
 # tar zxf otp_src_18.3.tar.gz
@@ -82,10 +78,10 @@ Eshell V7.3  (abort with ^G)
 1> halt().
 ```
 
-4. **安装配置RabbitMQ**
+**4. 安装配置RabbitMQ**
 ======
 RabbitMQ提供了yum安装、rpm安装、编译安装、二进制包等多种方式，此处采用的是二进制包直接解压使用。
-4.1 **解压RabbitMQ二进制包并移动到指定目录**
+**4.1 解压RabbitMQ二进制包并移动到指定目录**
 ------
 ```shell
 # tar xf rabbitmq-server-generic-unix-3.6.6.tar
@@ -97,13 +93,13 @@ RabbitMQ提供了yum安装、rpm安装、编译安装、二进制包等多种方
 export PATH=/data/program/rabbitmq/sbin:$PATH
 # source /etc/profile
 ```
-4.2 **启动RabbitMQ服务**
+**4.2 启动RabbitMQ服务**
 ------
 ```shell
 # rabbitmq-server -detached
 # rabbitmqctl status
 ```
-4.3 **开启web管理接口**
+**4.3 开启web管理接口**
 ------
 RabbitMQ默认情况下近允许通过命令行来管理，在日常工作中多有不便，还好RabbitMQ自带了web管理界面，只需要启动插件便可以使用。
 ```shell
@@ -114,7 +110,7 @@ RabbitMQ默认情况下近允许通过命令行来管理，在日常工作中多
 
 输入用户名和密码就可以访问web管理界面了。
 
-4.4 **配置RabbitMQ用户**
+**4.4 配置RabbitMQ用户**
 ------
 默认情况下，RabbitMQ的默认的guest用户只允许本机访问，如果需要远程访问，可以新增一个用户并配置远程；同时，由于RabbitMQ默认的账号用户名和密码都是guest。为了安全起见, 先删掉默认用户。
 
@@ -130,7 +126,7 @@ RabbitMQ默认情况下近允许通过命令行来管理，在日常工作中多
 Deleting user "guest" ...
 ```
 
-4.5 **RabbitMQ常用命令**
+**4.5 RabbitMQ常用命令**
 ------
 ```shell
 查看当前所有用户
@@ -153,7 +149,7 @@ rabbitmq	[administrator]
 查看用户的权限
 # rabbitmqctl list_user_permissions username
 ```
-4.6 **RabbitMQ用户角色**
+**4.6 RabbitMQ用户角色**
 ------
 **RabbitMQ的用户角色分类：**
 > none、management、policymaker、monitoring、administrator
@@ -187,16 +183,16 @@ policymaker和monitoring可以做的任何事外加:
 查看创建和删除permissions
 关闭其他用户的connections
 
-5. **一些踩到的坑**
+**5. 一些踩到的坑**
 ======
-5.1 **关于编译环境**
+**5.1 关于编译环境**
 ------
 编译安装Erlang的时候会出现报错：
 > jinterface : No Java compiler found
 
 可以通过安装jdk来解决，如果有gcc环境，无需安装jdk，可以在configure时增加 –disable-javac来跳过警告。
 
-5.2 **重启服务器后，RabbitMQ用户丢失问题**
+**5.2 重启服务器后，RabbitMQ用户丢失问题**
 ------
 在部署配置完成后，重启了一次服务器，服务器启动后重新启动RabbitMQ服务，结果神奇的发现RabbitMQ用户丢失了。
 原因如下：

@@ -358,6 +358,8 @@ S: 0d43b62b9ce2241147376574280e339b1fc3a97b 10.1.1.148:7379
 >>> Check slots coverage...
 [OK] All 16384 slots covered.
 
+redis-trib.rb工具可以拷贝到任意目录下使用，建议拷贝到redis的bin目录下；如果集群开启了密码认证，需要在client.rb文件中设置密码参数。
+
 ```
 **测试redis集群**
 ```
@@ -375,6 +377,30 @@ OK
 10.1.1.149:7379> get test
 -> Redirected to slot [6918] located at 10.1.1.148:6379
 "test01"
+```
+**为redis集群开启密码认证**
+redis-cluster集群开启密码认证有两种方式：
+```
+1. 在使用redis-trib.rb工具创建cluster集群前，在每个节点上开启密码认证，然后在ruby-gem配置文件中指定密码（各节点密码必须一致）
+# vim /usr/local/rvm/gems/ruby-2.4.1/gems/redis-4.0.1/lib/redis/client.rb
+:password => 'PASSWORD'     #在此处填写密码
+此处因为我的gem redis库是通过rvm安装的，所以client.rb文件路径在/usr/local/rvm/下，如果你的不是使用rvm安装，可以直接使用find搜索client.rb文件并修改。
+
+上述方法配置集群密码验证比较复杂不建议使用；
+
+但是配置client.rb中的password参数有一个好处：当集群开启认证，配置了client.rb中的password参数后，可以直接使用源码包中提供的redis-trib.rb工具来查看集群信息，具体的使用参数可以--help（redis-trib.rb工具可以拷贝到任意目录下使用）。
+```
+```
+2. 在创建cluster集群前不设置密码认证，创建集群完成后，登录到每一个集群节点创建密码，命令如下：
+# redis-cli -c -h 10.1.1.148 -p 6379   # 此处注意是集群所有节点，包括所有主从节点
+10.1.1.148:6379> config set masterauth 123456
+10.1.1.148:6379> config set requirepass 123456
+上述命令执行完成后，需退出redis重新使用密码认证登录，否则后续命令将无权执行。
+# redis-cli -c -h 10.1.1.148 -p 6379 -a '123456'
+10.1.1.148:6379> config rewrite
+执行完成config rewrite命令后，redis密码会自动保存到redis的config配置文件中。
+
+上述配置一定要注意，必须在集群所有节点一一执行，建议集群各节点密码一致（节点密码不一致的情况我也没有试过，有兴趣的可以试试）。
 ```
 
 

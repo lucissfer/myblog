@@ -42,7 +42,7 @@ node-02
 ```shell
 SELINUX建议一定要关掉，配置太麻烦了，而且容易踩坑，官方也建议关掉
 # setenforce 0
-# sed -i 's/SELINUX=enforcing/#SELINUX=enforcing\nSELINUX=disabled/g' /etc/sysconfig/selinux
+# sed -i 's/SELINUX=enforcing/#SELINUX=enforcing\nSELINUX=disabled/g' /etc/selinux/config
 ```
 
 <!-- more -->
